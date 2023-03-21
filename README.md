@@ -14,3 +14,6 @@ rename `.env.sample` to `.env` and fill in the blanks.
 make
 ```
 That's it!
+
+# Notes
+You might want to edit `DEFAULT_SYSTEM_MESSAGE` in main.py
