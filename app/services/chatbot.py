@@ -3,7 +3,7 @@ from services.console import console
 
 
 class ChatBot:
-    def __init__(self, api_key, model="gpt-3.5-turbo", max_hist=3):
+    def __init__(self, api_key, model="gpt-3.5-turbo", max_hist=15):
         openai.api_key = api_key
         self.model = model
         self.messages = []
