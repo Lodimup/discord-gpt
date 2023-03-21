@@ -1,7 +1,7 @@
 # discord-gpt
 ChatGPT in discord baby!
 
-TOMATO!
+Shouts `TOMATO!` every messages.
 
 # Usage
 ## Requirements
