@@ -1,8 +1,9 @@
 import openai
+from services.console import console
 
 
 class ChatBot:
-    def __init__(self, api_key, model="gpt-3.5-turbo", max_hist=15):
+    def __init__(self, api_key, model="gpt-3.5-turbo", max_hist=3):
         openai.api_key = api_key
         self.model = model
         self.messages = []
@@ -14,6 +15,7 @@ class ChatBot:
         If it is, remove the oldest message. that is not a system message.
         """
         if len(self.messages) > self.max_hist:
+            self.messages.pop(1)
             self.messages.pop(1)
 
     def _is_system_exists(self) -> bool:
@@ -65,8 +67,7 @@ class ChatBot:
             "role": d_r['role'],
             "content": d_r['content']
         })
-        from rich import print
-        print(self.messages)
+        console.log(self.messages)
         self._handle_max_hist()
 
         return d_r['content']
