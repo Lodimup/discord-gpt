@@ -50,7 +50,11 @@ async def on_message(message: discord.Message):
     if message.author == client.user:
         return
 
-    discord_message = f'{message.author.name}: {message.content}'
+    if os.getenv('PREPEND_USERNAME') == 'True':
+        discord_message = f'{message.author.name}: {message.content}'
+    else:
+        discord_message = message.content
+
     content = chatbot.chat(discord_message)
 
     chunked_content = chunk_message(content, 2000)
