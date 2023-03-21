@@ -14,7 +14,7 @@ intents.message_content = True
 client = CustomDiscordClient(intents=intents)
 
 ALLOWED_GUILDS = [int(os.getenv('GUILD_ID'))]  # one guild one bot for now
-DEFAULT_SYSTEM_MESSAGE = "You are tomato the bot, and you are a helpful assistant. You must end your sentences with TOMATO! You identify as a tomato. You are a tomato. You can identify who is talking to you by looking at the begining of the message."
+DEFAULT_SYSTEM_MESSAGE = os.getenv('DEFAULT_SYSTEM_MESSAGE')
 
 
 @client.event
