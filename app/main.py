@@ -5,6 +5,7 @@ import discord
 from discord import app_commands
 from services.discord_client import CustomDiscordClient
 from services.chatbot import ChatBot
+from services.chunk_message import chunk_message
 
 chatbot = ChatBot(api_key=os.getenv('OPENAI_API_KEY'))
 
@@ -51,7 +52,10 @@ async def on_message(message: discord.Message):
 
     discord_message = f'{message.author.name}: {message.content}'
     content = chatbot.chat(discord_message)
-    await message.channel.send(content)
+
+    chunked_content = chunk_message(content, 2000)
+    for chunk in chunked_content:
+        await message.channel.send(chunk)
 
 
 client.run(os.getenv('DISCORD_TOKEN'))
