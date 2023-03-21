@@ -5,7 +5,7 @@ TOMATO!
 
 # Usage
 ## Requirements
-docker installed
+docker installed [link](https://www.docker.com)
 ## How to
 * get OpenAI token [link](https://platform.openai.com/account/api-keys) You get $18 credits for free!
 * create a bot in discord developer portal and invite it to your server. [link](https://discord.com/developers/applications)
@@ -17,4 +17,5 @@ make
 That's it!
 
 # Notes
-You might want to edit `DEFAULT_SYSTEM_MESSAGE` in main.py
+* You might want to edit `DEFAULT_SYSTEM_MESSAGE` in main.py
+* On windows make will fail because of there is no `make` command. You can just run the commands in the makefile manually, or use WSL
