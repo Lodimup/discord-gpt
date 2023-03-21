@@ -30,6 +30,9 @@ def make_envs() -> dict:
     for env in L_ENVS:
         ret[env] = os.getenv(env)
 
+    ret['GUILD_ID'] = int(ret['GUILD_ID'])
+    ret['PREPEND_USERNAME'] = ret['PREPEND_USERNAME'] == 'True'
+
     return ret
 
 
